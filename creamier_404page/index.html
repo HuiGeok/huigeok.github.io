@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creamier 404 Error</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            background-color: #fffbee;
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            color: #5C4033;
+            text-align: center;
+            cursor: url(images/ice_cream_icon.png) 32 32 , auto;
+        }
+
+        .header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 20px;
+         background-color: #fffbee;
+         border-bottom: 1px solid #ddd;
+         }
+
+        #logo {
+            display: flex;
+            padding: 10px;
+            width:auto;
+            margin-left: 30px;
+        }
+    
+        #header-actions {
+             display: flex;
+             margin-right: 25px;
+             margin-left: 25px;
+            }
+
+        .search-bar {
+            padding: 12px;
+            border: 1px solid #b5b4b3;
+            border-radius: 50px;
+            background-color: #fef8e7;
+            background: url(images/search_icon.png) no-repeat 20px center;
+            background-size: 20px 20px;
+            padding-left: 50px;
+            font-size: medium;
+            font-weight:100;
+            width: 400px;
+            margin-left: 50px;
+            margin-right: 12px;
+            letter-spacing: 1px;
+        }
+
+        .action-button {
+         border: 1px solid #fef8e7;
+         padding: 10px 20px 10px 20px;
+         border-radius: 50px;
+         border-color:#5C4033;
+         font-size:medium;
+         cursor: pointer;
+         color: #5C4033;
+         background-color: #fef8e7; /* Light cream background */
+         flex: 1;
+         width: 150px;
+         margin-right: 12px;
+         background: url('images/account_icon2.png') no-repeat 10px center;
+         background-size: 24px 24px;
+         padding-left: 40px;/* Space for the icon */
+         letter-spacing: 1px;
+        }
+        .cart-button {
+         border: 1px solid #fef8e7;
+         padding: 10px 20px;
+         border-radius: 50px;
+         border-color:#5C4033;
+         font-size:medium;
+         cursor: pointer;
+         color: #5C4033;
+         background-color: #fef8e7; /* Light cream background */
+         flex: 1;
+         width: 110px;
+         margin-right: 12px;
+         background: url(images/shopping_cart_icon.png) no-repeat 15px center ;
+         background-size: 24px 24px;
+         padding-left: 48px; /* Space for the icon */
+         letter-spacing: 1px;
+        }
+
+
+        .cart-button {
+         display: flex;
+         align-items: center;
+         background-color: #774d37; /* Brown cart button */
+         color: #fff;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content:left;
+            gap: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 5px 50px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5C4033;
+            font-weight:lighter;
+            padding:10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            letter-spacing: 1px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #bf5e3b;
+        }
+    
+        #container {
+            display: flex;
+            flex-wrap:wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            width:100% ;
+            height: auto;
+            background-image: url(images/ice_cream_background.jpeg);
+           box-sizing: border-box;
+           background-size: cover;
+           gap:0%;
+        }
+
+        #error-content {
+            flex: 1;
+            width: 100%;
+            height: auto;
+            margin: 40px auto 40px auto;
+        }
+
+        #error {
+            flex: 1;
+            text-align:center;
+            width: 100%;
+            height: auto;
+            margin: 40px auto 40px auto;
+        }
+       
+        .back-button{
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #734338;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #51271d;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+        h1 {
+            color: #bf5e3b;
+            font-size: 50px;
+            animation: zoom 2s infinite;
+         }
+
+        @keyframes zoom {
+         0%, 100% {
+         transform: scale(1);
+         }
+         50% {
+         transform: scale(1.1);
+        }
+         }
+
+
+        .message {
+            font-size: 20px;
+            margin: 20px 0;
+            color:#5C4033;
+            
+        }
+
+        footer {
+            background-color:#5c310d;
+            flex-wrap: wrap;
+        }
+        
+        .container2 {
+            padding: 50px;
+            font-size: 20px;
+        }
+        .flavor-wheel {
+            margin: 30px auto;
+            width: 300px;
+            height: 300px;
+            border: 5px solid #bf5e3b;
+            border-radius: 50%;
+            position: relative;
+        }
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background-color: #f4c2a0;
+            transform-origin: 100% 100%;
+            clip-path: polygon(100% 100%, 0% 100%, 50% 50%);
+        }
+        .wheel-segment:nth-child(1) {
+            transform: rotate(0deg);
+            background-color: #f4c2a0;
+        }
+        .wheel-segment:nth-child(2) {
+            transform: rotate(60deg);
+            background-color: #f7d488;
+        }
+        .wheel-segment:nth-child(3) {
+            transform: rotate(120deg);
+            background-color: #b5e3e0;
+        }
+        .wheel-segment:nth-child(4) {
+            transform: rotate(180deg);
+            background-color: #d6b5f3;
+        }
+        .wheel-segment:nth-child(5) {
+            transform: rotate(240deg);
+            background-color: #ffb5b5;
+        }
+        .wheel-segment:nth-child(6) {
+            transform: rotate(300deg);
+            background-color: #ffc7b2;
+        }
+        .spin-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #734338;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .spin-button:hover {
+            background-color: #51271d;
+        }
+        .all-flavours {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #734338;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .all-flavours:hover {
+            background-color: #51271d;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #d9863d;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .popup h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #734338;
+        }
+        .popup p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #734338;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #51271d;
+        }
+        .popup img {
+            display: block; /* Places the image on a new line */
+            margin: 20px auto; /* Centers the image and adds vertical spacing */
+            width: 300px; /* Sets the image size to be larger */
+            height: auto; /* Maintains the original aspect ratio */
+            border-radius: 10px; /* Optional: Adds rounded corners for aesthetics */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
+        }
+
+        .footer {
+         background-color:#5c310d; /* Brown footer background */
+         color: #fff;
+         padding: 50px 40px 20px 40px;
+         font-family: 'DM Sans', sans-serif;
+         letter-spacing: 1px;
+        }
+
+         .footer-section {
+         margin-bottom: 10px;
+         }
+
+         .footer-section img {
+            width: auto;
+            height: 40px;
+            align-items: left;
+            margin-right: 100px;
+         }
+
+         #social media img {
+            align-items: left;
+         }
+
+         .footer h2 {
+         font-family: 'DM Sans', sans-serif;
+         margin-bottom:auto;
+         text-align: left;
+         margin-left: 40px; 
+         font-weight: lighter;
+         font-size: 28px;
+
+         }
+
+        .footer h3 {
+         font-family: 'DM Sans', sans-serif;
+         font-size: 20px;
+         font-weight: lighter;
+         margin-bottom: 10px;
+         text-align: left;
+         margin-left: 40px; 
+        }
+
+         .footer p {
+         font-size: 18px;
+         font-weight:lighter;
+         margin-bottom: 10px;
+         text-align:left;
+         margin-left: 40px; 
+        }
+
+         .footer ul {
+         list-style: none;
+         text-align: left;
+        
+        }
+         .footer ul li {
+         margin-bottom: 0.5rem;
+        }
+
+         .footer ul li a {
+         text-decoration: underline;
+         color: #fff;
+         font-size:medium;}
+
+         .footer ul li a:hover {
+         color: #1e1d1d;
+        }
+
+         .footer-bottom {
+         text-align:left;
+         font-size:medium;
+         margin-top: 1.5rem;}
+
+         .footer-bottom p{
+            font-size: medium;
+            text-align: left;
+            margin-left:40px;
+         }
+
+
+         /* Responsive Design */
+@media (max-width: 768px) {
+
+#header-actions {
+    flex-direction:column-reverse; /* Stack elements in a column */
+    align-items:center; /* Center items */
+    gap: 10px; /* Add spacing between items */
+}
+
+.search-bar {
+    display: none;
+}
+
+.action-button, .cart-button {
+    display: none;
+}
+
+#error-content {
+    display: none;
+}
+
+#logo{
+    width: auto;
+}
+}
+@media (max-width: 768px) {
+            #container {
+                flex-direction:column-reverse;
+                align-items: center;
+            }
+        }
+
+/* Responsive Design */
+@media (min-width: 768px) {
+.footer {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 2rem;
+}
+
+.footer-bottom {
+grid-column: span 4;
+margin-top: 2rem;
+}
+}
+
+    </style>
+    </head>
+    <body>
+    <header>
+    <header class="header">
+        <div id = "logo">
+        <img src="images/creamier_logo_2.png" alt="Creamier Logo" class="logo"> 
+        </div>
+        <div id="header-actions">
+            <input type="text" placeholder="Search for..." class="search-bar" />
+            <button class="action-button">Account</button>
+            <button class="cart-button">
+            <span>$0.00(0)</span>
+            </button>
+        </div>
+    </header>
+    <nav>
+        <a href="https://creamier.com.sg/collections/new-flavours">Shop</a>
+        <a href="https://creamier.com.sg/collections/doggie-ice-cream-collection-by-creamier">For Fur Kids</a>
+        <a href="https://creamier.com.sg/pages/events-catering">Events</a>
+        <a href="https://creamier.com.sg/pages/our-story">Our Story</a>
+        <a href="https://creamier.com.sg/pages/scoop-shops">Find Us</a>
+    </nav>
+    
+ 
+    <div id="container">
+        <div id="error"> 
+           <h1> 404 error </h1>
+            <p class="message">
+                Whoops! This page has melted away... <br/> but here’s a little fun while you wait.<br/> Play our sweet little game and scoop <br/> your way back to the homepage! </p> <br/> 
+                <div class="back-button">
+                    <a href="https://creamier.com.sg/" class="back-button">Back to Home</a>
+                    </div>            
+        </div>
+            <div id="error-content">
+            <img src= "images/melting_ice_cream2.png" alt="melting ice cream">
+            </div>
+    </div>
+    
+    <section>
+        <script>
+            const flavorImages = [
+                "images/earl_grey_lavender.png",  // Image path for Earl Grey Lavender
+                "images/sea_salt_gula_melaka.png", // Image path for Sea Salt Gula Melaka
+                "images/thai_milk_tea.png",       // Image path for Thai Milk Tea
+                "images/roasted_pistachio.png",   // Image path for Roasted Pistachio
+                "images/chocolate_oreo.png",    // Image path for Chocolate Sorbet
+                "images/blue_pea_vanilla.png",   // Image path for Vanilla Bean
+            ];
+    
+            function spinFlavorWheel() {
+                const wheel = document.querySelector('.flavor-wheel');
+                const flavors = [
+                    "Earl Grey Lavender",
+                    "Sea Salt Gula Melaka",
+                    "Thai Milk Tea",
+                    "Roasted Pistachio",
+                    "Chocolate Oreo",
+                    "Blue Pea Vanilla",
+                ];
+    
+                const randomAngle = Math.floor(Math.random() * 360) + 360 * 3; // At least 3 full spins
+                wheel.style.transition = 'none';
+                wheel.style.transform = `rotate(${randomAngle}deg)`;
+                // Force reflow to ensure the transition is reset before applying the new transition
+                void wheel.offsetWidth;  // Trigger a reflow to reset the transition
+
+                // Now apply the transition for the spin animation
+                wheel.style.transition = 'transform 5s ease-out';
+
+                // Apply the final rotation with transition
+                wheel.style.transform = `rotate(${randomAngle + 360 * 3}deg)`; 
+    
+                setTimeout(() => {
+                    const selectedIndex = Math.floor(((randomAngle % 360) / 100));
+                    const selectedFlavor = flavors[selectedIndex];
+                    const selectedImage = flavorImages[selectedIndex];
+                    showPopup(selectedFlavor, selectedImage);
+                }, 5000);
+
+            }
+    
+            function showPopup(flavor, imagePath) {
+                const popup = document.querySelector('.popup');
+                popup.querySelector('p').textContent = `Enjoy a delicious 10% OFF with the promo code ICECREAM10 at checkout! Treat yourself to our irresistible ${flavor} flavor today!`;
+    
+                // Dynamically update or add the popup image
+                let img = popup.querySelector('img');
+                if (!img) {
+                    img = document.createElement('img'); // Create the image if it doesn't exist
+                    img.style.display = 'block'; // Ensure it's on a new line
+                    img.style.margin = '20px auto'; // Center the image and add spacing
+                    img.style.width = '300px'; // Adjust width for a bigger image
+                    img.style.height = 'auto'; // Maintain aspect ratio
+                    popup.appendChild(img); // Append the image to the popup
+                }
+                img.src = imagePath; // Update the source to the correct image
+    
+                popup.style.display = 'block'; // Show the popup
+            }
+    
+            function closePopup() {
+                const popup = document.querySelector('.popup');
+                popup.style.display = 'none';
+            }
+        </script>
+        <div class="container2">
+            <h3>Get ready to spin and scoop up some fun!</h3>
+            <p>Play our sweet little ice cream spinning game. Give it a whirl and discover your next favorite scoop!</p>
+            <div class="flavor-wheel">
+                <div class="wheel-segment"></div>
+                <div class="wheel-segment"></div>
+                <div class="wheel-segment"></div>
+                <div class="wheel-segment"></div>
+                <div class="wheel-segment"></div>
+                <div class="wheel-segment"></div>
+            </div>
+            <button class="spin-button" onclick="spinFlavorWheel()">Spin the Flavour Wheel 🍦</button>
+            <a href="https://creamier.com.sg/collections/all-flavours" class="all-flavours">Shop All Flavours</a>
+        </div>
+    
+        <div class="popup">
+            <h2>Yum!</h2>
+            <p></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-section">
+        <h2>CREAMIER</h2>
+        <p>Moment of Happiness</p>
+        <img src ="images/footer_icon.png" div="social media">
+        </div>
+
+        <div class="footer-section">
+        <h3>Shop</h3>
+        <ul>
+        <li><a href="https://creamier.com.sg/collections/2024-all-flavours">Ice Cream</a></li>
+        <li><a href="https://creamier.com.sg/collections/doggie-ice-cream-collection-by-creamier">Pup Cups</a></li>
+        <li><a href="https://creamier.com.sg/collections/ice-cream-party-bundles">Party Bundles</a></li>
+        <li><a href="https://creamier.com.sg/collections/menu-item-gifting">Gift Ideas</a></li>
+        </ul>
+        </div>
+        
+        <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+        <li><a href="https://creamier.com.sg/pages/our-story">Our Story</a></li>
+        <li><a href="https://creamier.com.sg/blogs/news">Journal</a></li>
+        <li><a href="https://creamier.com.sg/pages/events-catering">Events & Catering</a></li>
+        <li><a href="https://creamier.com.sg/pages/join-our-team">Join Our Team</a></li>
+        </ul>
+        </div>
+        
+        <div class="footer-section">
+        <h3>Customer</h3>
+        <ul>
+        <li><a href="https://creamier.com.sg/pages/contact-us-on-your-order-or-event-enquiry">Contact Us</a></li>
+        <li><a href="https://creamier.com.sg/pages/faq">FAQ</a></li>
+        <li><a href="https://creamier.com.sg/policies/terms-of-service">Terms & Conditions</a></li>
+        <li><a href="https://creamier.com.sg/policies/privacy-policy">Privacy Policy</a></li>
+        </ul>
+        </div>
+        
+        <div class="footer-bottom">
+        <p>© 2024 Creamier Handcrafted Ice Cream and Coffee.</p>
+        </div>
+        </footer>
+
+</body>
+</html>
