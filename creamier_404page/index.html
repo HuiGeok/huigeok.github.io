@@ -8,7 +8,7 @@
     <style>
         
         body {
-            background-color: #fffbee;
+            background-color: #fef8e7;
             margin: 0;
             font-family: 'DM Sans', sans-serif;
             color: #5C4033;
@@ -21,7 +21,7 @@
          justify-content: space-between;
          align-items: center;
          padding: 20px;
-         background-color: #fffbee;
+         background-color: #fef8e7;
          border-bottom: 1px solid #ddd;
          }
 
@@ -56,7 +56,7 @@
 
         .action-button {
          border: 1px solid #fef8e7;
-         padding: 10px 20px 10px 20px;
+         padding: 10px 20px;
          border-radius: 50px;
          border-color:#5C4033;
          font-size:medium;
@@ -66,9 +66,9 @@
          flex: 1;
          width: 150px;
          margin-right: 12px;
-         background: url('images/account_icon2.png') no-repeat 10px center;
-         background-size: 24px 24px;
-         padding-left: 40px;/* Space for the icon */
+         background: url('images/account_icon.png') no-repeat 10px center;
+         background-size: 20px 20px;
+         padding-left: 36px;/* Space for the icon */
          letter-spacing: 1px;
         }
         .cart-button {
@@ -137,18 +137,18 @@
         }
 
         #error-content {
-            flex: 1;
+            flex:1;
             width: 100%;
             height: auto;
-            margin: 40px auto 40px auto;
+            margin-bottom: 40px; 
+            margin-top: 40px;
+            margin-right: 5%;
+            
         }
-
         #error {
             flex: 1;
             text-align:center;
             width: 100%;
-            height: auto;
-            margin: 40px auto 40px auto;
         }
        
         .back-button{
@@ -319,7 +319,7 @@
         .footer {
          background-color:#5c310d; /* Brown footer background */
          color: #fff;
-         padding: 50px 40px 20px 40px;
+         padding: 80px 50px 20px 20px;
          font-family: 'DM Sans', sans-serif;
          letter-spacing: 1px;
         }
@@ -331,11 +331,7 @@
          .footer-section img {
             width: auto;
             height: 40px;
-            align-items: left;
-            margin-right: 100px;
-         }
-
-         #social media img {
+            margin-right: 100px ;
             align-items: left;
          }
 
@@ -406,25 +402,24 @@
 }
 
 .search-bar {
-    display: none;
+    width: 100%; /* Full width for smaller screens */
+    margin-left: 0; /* Remove extra margins */
+    margin-right: 0;
 }
 
 .action-button, .cart-button {
-    display: none;
+    width: auto; /* Buttons take full width */
+    margin-right: 0; /* Remove extra margin */
 }
-
-#error-content {
-    display: none;
 }
 
 #logo{
     width: auto;
 }
-}
+
 @media (max-width: 768px) {
             #container {
-                flex-direction:column-reverse;
-                align-items: center;
+                flex-direction: column;
             }
         }
 
@@ -440,15 +435,15 @@ gap: 2rem;
 grid-column: span 4;
 margin-top: 2rem;
 }
-}
 
+}
     </style>
     </head>
     <body>
     <header>
     <header class="header">
         <div id = "logo">
-        <img src="images/creamier_logo_2.png" alt="Creamier Logo" class="logo"> 
+        <img src="images/creamier_logo.png" alt="Creamier Logo" class="logo"> 
         </div>
         <div id="header-actions">
             <input type="text" placeholder="Search for..." class="search-bar" />
@@ -458,7 +453,14 @@ margin-top: 2rem;
             </button>
         </div>
     </header>
-
+    <nav>
+        <a href="https://creamier.com.sg/collections/new-flavours">Shop</a>
+        <a href="https://creamier.com.sg/collections/doggie-ice-cream-collection-by-creamier">For Fur Kids</a>
+        <a href="https://creamier.com.sg/pages/events-catering">Events</a>
+        <a href="https://creamier.com.sg/pages/our-story">Our Story</a>
+        <a href="https://creamier.com.sg/pages/scoop-shops">Find Us</a>
+    </nav>
+    
  
     <div id="container">
         <div id="error"> 
@@ -466,6 +468,7 @@ margin-top: 2rem;
             <p class="message">
                 Whoops! This page has melted away... <br/> but here’s a little fun while you wait.<br/> Play our sweet little game and scoop <br/> your way back to the homepage! </p> <br/> 
                 <div class="back-button">
+                    <a href="https://creamier.com.sg/" class="back-button">Back to Home</a>
                     </div>            
         </div>
             <div id="error-content">
@@ -518,7 +521,7 @@ margin-top: 2rem;
     
             function showPopup(flavor, imagePath) {
                 const popup = document.querySelector('.popup');
-                popup.querySelector('p').textContent = `Enjoy a delicious 10% OFF with the promo code ICECREAM10 at checkout! Treat yourself to our irresistible ${flavor} flavor today!`;
+                popup.querySelector('p').textContent = `How about trying our ${flavor} flavor today?`;
     
                 // Dynamically update or add the popup image
                 let img = popup.querySelector('img');
@@ -551,7 +554,8 @@ margin-top: 2rem;
                 <div class="wheel-segment"></div>
                 <div class="wheel-segment"></div>
             </div>
-            <button class="spin-button" onclick="spinFlavorWheel()">Spin the Flavour Wheel 🍦</button>     
+            <button class="spin-button" onclick="spinFlavorWheel()">Spin the Flavor Wheel 🍦</button>
+            <a href="https://creamier.com.sg/collections/all-flavours" class="all-flavours">Shop All Flavours</a>
         </div>
     
         <div class="popup">
@@ -565,7 +569,9 @@ margin-top: 2rem;
         <div class="footer-section">
         <h2>CREAMIER</h2>
         <p>Moment of Happiness</p>
-        <img src ="images/footer_icon.png" div="social media">
+        <div class ="social media">
+        <img src ="images/footer_icon.png" alt="social media">
+        </div>
         </div>
 
         <div class="footer-section">
@@ -599,9 +605,9 @@ margin-top: 2rem;
         </div>
         
         <div class="footer-bottom">
-        <p>© 2024/2025 School Project - Inspired by Cremier Handcrafted Ice Cream and Coffee.</p>
+        <p> © 2024/2025 School Project – Inspired by Cremier Handcrafted Ice Cream and Coffee.</p>
         </div>
         </footer>
-
 </body>
 </html>
+
